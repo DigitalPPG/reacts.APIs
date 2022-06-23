@@ -1,43 +1,9 @@
-import axios from 'axios';
-let Infos ="";
-//
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Post } from "./Components/Post";
 
-const ObtenerDatos = async() => {
- 
-  try{
-      const respuesta = await axios.get('http://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/hello-message',{
-
-      })
-      if(respuesta.status === 200){
-
-        
-/*         respuesta.data.Data.map(Info => {
-          Infos += `
-            <div class="pelicula">
-              <h3>${respuesta.data.Data}</h3>
-              <h3 class="titulo">${respuesta.data.Data}</h3>
-            </div>
-            `;
-          });
-
-        document.getElementById('root').innerHTML = Infos; */
-
-        let Name = `
-        <div><h3>${respuesta.data}</h3></div>
-        `;
-
-        document.getElementById('root').innerHTML = Name;
-
-
-        console.log(respuesta);
-      } 
-      
-      
-  } 
-    catch(error){
-    alert(error)
-  }
-    
-}
-
-ObtenerDatos();
+ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+        <Post></Post>
+    </React.StrictMode>
+)
