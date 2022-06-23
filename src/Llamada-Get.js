@@ -4,7 +4,7 @@ let Infos ="";
 const ObtenerDatos = async() => {
  
   try{
-      const respuesta = await axios.get('http://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/hello-message',{
+      const respuesta = await axios.get('http://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/get-list',{
 
       })
       if(respuesta.status === 200){
@@ -22,7 +22,8 @@ const ObtenerDatos = async() => {
         document.getElementById('root').innerHTML = Infos; */
 
         let Name = `
-        <div><h3>${respuesta.data}</h3></div>
+        <div><h3>${respuesta}</h3></div>
+        <div><h3>${respuesta}</h3></div>
         `;
 
         document.getElementById('root').innerHTML = Name;
