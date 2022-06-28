@@ -11,12 +11,12 @@ export const Post = () => {
 
   const handleChange = (event) =>{
     const value = event.target.value
-    console.log(event.target.value);
+    
     setPost({
       ...data,
       [event.target.name] : value
     });
-    console.log('data',data);
+    
   }
 
   const handleSubmit = (event) => {
@@ -28,13 +28,19 @@ export const Post = () => {
     }
     
     const url = `http://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/create-test`;
+    const headers = {
+      'Content-Type': 'application/json'
+    }
     //Convertir el array para manipulación
     
     const newFormart = JSON.stringify(userData);
-    console.log('userDataConver', JSON.stringify(userData));
-    axios.post(url,newFormart).then((response) => {
+    console.log('userDataConver', JSON.stringify(userData),{headers});
+    axios.post(url,newFormart,).then((response) => {
       console.log(response);
     })
+
+    
+    
   }
 
 
@@ -61,6 +67,7 @@ export const Post = () => {
           value={data.Nombre}
           onChange={handleChange} 
           />
+         
           <button type="submit">Enviar</button>
         </label>
       </form>
