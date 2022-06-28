@@ -35,7 +35,8 @@ export const Post = () => {
     
     const newFormart = JSON.stringify(userData);
     console.log('userDataConver', JSON.stringify(userData),{headers});
-    axios.post(url,newFormart,{headers}).then((response) => {
+
+    axios.post('https://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/create-test',newFormart).then((response) => {
       console.log(response);
     })
 
