@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { getAllData } from '../helpers/apiTest';
+import { getMessageTest } from '../helpers/apiTest';
 import { getMessage } from '../helpers/getMessage';
+import { GetList } from './GetList';
+import { Post } from './Post';
 export const Get = () => {
     
     // const [post, setPost] = useState(null);
@@ -17,36 +19,43 @@ export const Get = () => {
     //   });
     // }, []);
     /////////////////////////////////////////////////////////////////////////////////////
-    const [message, setMessage] = useState([]);
-    const getNewMssage = async()=>{
-        const newMessage = await getAllData();
-        setMessage(newMessage);
 
-    }
-    console.log('message',getAllData());
-    useEffect(()=>{
-        getNewMssage();
-    },[]);
+    // const [message, setMessage] = useState([]);
+
+    // const url = `http://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/hello-message`;
+    // const getAllData = () => {
+
+    //     axios.get(url).then((response) =>{
+    //        setMessage(response.data)
+    //    });
+       
+    //    }
+    //    getAllData();
+    
+    
     ///////////////////////////////////////////////////////////////////////////////////////
     
 
-    // const [message, setMessage] = useState('');
+    const [message, setMessage] = useState([]);
 
-    // const getNewMssage = async()=>{
-    //     const newMessage =  await getAllData();
-    //     console.log(newMessage);
-    //     setMessage(newMessage);
+    const getNewMssage = async()=>{
+        const newMessage =  await getMessageTest();
+        console.log(newMessage);
+        setMessage(newMessage.data);
         
-    // }
-    // useEffect(()=>{
-    //     getNewMssage();
-    // },[]);
+    }
+    useEffect(()=>{
+        getNewMssage();
+    },[]);
     
       
     return(
         <>
-        <div> Componente   </div>
-        <h1> texto{message}</h1>
+        <div> Componente Get   </div>
+        <h1> {message}</h1>
+        <GetList></GetList>
+        <Post></Post>
+        
         </>
         
     )
