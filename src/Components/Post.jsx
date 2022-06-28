@@ -27,7 +27,7 @@ export const Post = () => {
       
     }
     
-    const url = `http://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/create-test`;
+    const url = `https://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/create-test`;
     const headers = {
       'Content-Type': 'application/json'
     }
@@ -35,7 +35,7 @@ export const Post = () => {
     
     const newFormart = JSON.stringify(userData);
     console.log('userDataConver', JSON.stringify(userData),{headers});
-    axios.post(url,newFormart,).then((response) => {
+    axios.post(url,newFormart,{headers}).then((response) => {
       console.log(response);
     })
 
