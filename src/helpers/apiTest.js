@@ -1,7 +1,7 @@
 import axios from "axios"
 
-const url = `http://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/hello-message`;
-const urlGetList = 'http://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/get-list';
+const url = `https://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/hello-message`;
+const urlGetList = 'https://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/get-list';
 
 export const getMessageTest = async()=>{
     return await axios.get(url);

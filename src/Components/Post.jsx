@@ -27,6 +27,7 @@ export const Post = () => {
       
     }
     
+    console.log('userData',userData);
     const urlCreate = `https://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/create-test`;
     //Convertir el array para manipulación
 

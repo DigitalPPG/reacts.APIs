@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { getMessageTest } from '../helpers/apiTest';
 import { getMessage } from '../helpers/getMessage';
+import { Delete } from './Delete';
 import { GetList } from './GetList';
 import { Post } from './Post';
 export const Get = () => {
@@ -55,6 +56,7 @@ export const Get = () => {
         <h1> {message}</h1>
         <GetList></GetList>
         <Post></Post>
+        
         
         </>
         
