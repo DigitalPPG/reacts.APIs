@@ -27,18 +27,22 @@ export const Post = () => {
       
     }
     
-    const url = `https://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/create-test`;
-    const headers = {
-      'Content-Type': 'application/json'
-    }
+    const urlCreate = `https://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/create-test`;
     //Convertir el array para manipulación
-    
-    const newFormart = JSON.stringify(userData);
-    console.log('userDataConver', JSON.stringify(userData),{headers});
 
-    axios.post('https://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/create-test',newFormart).then((response) => {
-      console.log(response);
+    axios({
+      method:'POST',
+      url:`https://cors-anywhere.herokuapp.com/${urlCreate}/`,
+      headers:{
+        'Access-Control-Allow-Origin': '*',
+        'origin':'x-requested-with',
+        'Access-Control-Allow-Headers': 'POST, GET, PUT, DELETE, OPTIONS, HEAD, Authorization, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin',
+        'Content-Type': 'application/json'
+      },
+      data:  userData
+      
     })
+    
 
     
     
