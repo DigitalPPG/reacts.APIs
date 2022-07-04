@@ -5,6 +5,7 @@ import { getMessage } from '../helpers/getMessage';
 import { Delete } from './Delete';
 import { GetList } from './GetList';
 import { Post } from './Post';
+import { UpdateList } from './UpdateList';
 export const Get = () => {
     
     // const [post, setPost] = useState(null);
@@ -56,8 +57,8 @@ export const Get = () => {
         <h1> {message}</h1>
         <GetList></GetList>
         <Post></Post>
-        
-        
+        <UpdateList></UpdateList>
+        <Delete></Delete>
         </>
         
     )

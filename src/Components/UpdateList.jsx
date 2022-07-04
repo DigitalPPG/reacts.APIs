@@ -2,14 +2,15 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react"
-import { Form, Col, Button, Row } from "react-bootstrap";
+import { Form, Col } from "react-bootstrap";
 import { getListApi } from "../helpers/apiTest";
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 
-export const Delete = () => {
+
+export const UpdateList = () => {
   const [data, setPost] = useState({
-    Id:0
+    Id:0,
+    Nombre:""
   });
   const [getList, setGetList] = useState([]);
 
@@ -25,17 +26,17 @@ export const Delete = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    event.stopPropagation();
     const userData = {
       Id:Number(data.Id),
+      Nombre: data.Nombre
       
     }    
     console.log('userData',userData);
-    const urlDelete = `https://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/delte-test?id=10`;
+    const urlUpdate = `https://servicios.devaxxess.com.mx/Comex.TI.PortalCliente.WebApi/api/test/update-test?id=${userData.Id}`;
     //Convertir el array para manipulación
     axios({
-      method:'DELETE',
-      url:`${urlDelete}`,
+      method:'PUT',
+      url:`${urlUpdate}`,
       auth:{
         username: 'Comex',
         password: 'Comex2017'
@@ -58,35 +59,26 @@ export const Delete = () => {
 
   return (
     <div>Formulario 
-        <Form onSubmit={handleSubmit} >
-        <Row className="align-items-center">
-            
-            
-        <Form.Group>
-            <Form.Label>Method Delete</Form.Label>
-            <Col xs={1} >
-            <Form.Control 
-                type="number"
-                name="Id"
-                onChange={handleChange}
-                value={data.Id}
-            />
-            </Col>
-            <Col xs="auto">
-          <Button type="submit"  variant="outline-danger">Eliminar</Button> 
-          </Col>
-          </Form.Group>
-          
-          
-          
-          
+       
+      <form onSubmit={handleSubmit}>
+        <label>
+          Put Title:
+          <input 
+          type="number" 
+          name="Id" 
+          id="" 
+          onChange={handleChange}
+          value={data.Id}
+          />
+          <input 
+          type="text" 
+          name="Nombre" 
+          id="" 
+          placeholder="Introduce Nombre" 
+          value={data.Nombre}
+          onChange={handleChange} 
+          />
 
-        </Row>
-       
-        </Form>
-       
-       
-    
 
         {/* <Form.Group as={Col} controlId="exampleForm" >
             <Form.Label>Tipo</Form.Label>
@@ -99,11 +91,9 @@ export const Delete = () => {
             </Form.Control>
         </Form.Group> */}
          
-         
-         
-          
-        
-      
+          <button type="submit">Enviar</button>
+        </label>
+      </form>
     </div>
   )
 }
